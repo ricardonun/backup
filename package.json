@@ -1,0 +1,19 @@
+{
+  "name": "backup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "fs": "^0.0.1-security",
+    "node-schedule": "^2.1.1",
+    "nodemon": "^2.0.22",
+    "ssh2-sftp-client": "^9.0.4"
+  }
+}
