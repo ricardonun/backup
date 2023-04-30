@@ -15,14 +15,8 @@ const config = {
 
 let dst = "./";
 const src = "/backups";
-
-// let rule = new schedule.RecurrenceRule();
-// rule.minute = 5;
-// rule.tz = "BR";
-
 async function main() {
   const client = new SftpClient("upload-test");
-
   try {
     await client.connect(config);
     client.on("download", (info) => {
@@ -35,18 +29,57 @@ async function main() {
     console.log("End program");
   }
 }
-const newDate = Date.now();
-if (!fs.existsSync(newDate.toString())) {
-  //Efetua a criação do diretório
-  fs.mkdirSync(`./backups/${newDate.toString()}`);
-}
-dst = `./backups/${newDate}`;
-main()
-  .then((msg) => {
-    console.log(msg);
-  })
-  .catch((err) => {
-    console.log(`main error: ${err.message}`);
-  });
 
-console.log("Backup finalizado com sucesso");
+const job = schedule.scheduleJob("1 0 12 * * *", () => {
+  const newDate = Date.now();
+  if (!fs.existsSync(newDate.toString())) {
+    //Efetua a criação do diretório
+    fs.mkdirSync(`./backups/${newDate.toString()}`);
+  }
+  dst = `./backups/${newDate}`;
+  main()
+    .then((msg) => {
+      console.log(msg);
+    })
+    .catch((err) => {
+      console.log(`main error: ${err.message}`);
+    });
+
+  console.log("Backup finalizado com sucesso");
+});
+
+const job2 = schedule.scheduleJob("1 0 15 * * *", () => {
+  const newDate = Date.now();
+  if (!fs.existsSync(newDate.toString())) {
+    //Efetua a criação do diretório
+    fs.mkdirSync(`./backups/${newDate.toString()}`);
+  }
+  dst = `./backups/${newDate}`;
+  main()
+    .then((msg) => {
+      console.log(msg);
+    })
+    .catch((err) => {
+      console.log(`main error: ${err.message}`);
+    });
+
+  console.log("Backup finalizado com sucesso");
+});
+
+const job3 = schedule.scheduleJob("1 0 20 * * *", () => {
+  const newDate = Date.now();
+  if (!fs.existsSync(newDate.toString())) {
+    //Efetua a criação do diretório
+    fs.mkdirSync(`./backups/${newDate.toString()}`);
+  }
+  dst = `./backups/${newDate}`;
+  main()
+    .then((msg) => {
+      console.log(msg);
+    })
+    .catch((err) => {
+      console.log(`main error: ${err.message}`);
+    });
+
+  console.log("Backup finalizado com sucesso");
+});
