@@ -4,3 +4,7 @@ node_modules
 .env
 
 backups/*
+
+token.json
+
+credentials.json

@@ -15,8 +15,10 @@
     "fs": "^0.0.1-security",
     "google-auth-library": "^8.8.0",
     "googleapis": "^105.0.0",
+    "gzipme": "^1.0.0",
     "node-schedule": "^2.1.1",
     "nodemon": "^2.0.22",
-    "ssh2-sftp-client": "^9.0.4"
+    "ssh2-sftp-client": "^9.0.4",
+    "stream": "^0.0.2"
   }
 }
